@@ -16,7 +16,7 @@ app.get("/campgrounds", function (req, res) {
         {name: "Granite Hill", image: "https://farm5.staticflickr.com/4153/4835814837_feef6f969b.jpg"},
         {name: "Mt. View", image: "https://farm8.staticflickr.com/7252/7626464792_3e68c2a6a5.jpg"}
     ]
-    res.render("campgrounds");
+    res.render("campgrounds", {campgrounds: campgrounds});
 });
 
 app.listen(myPort, function(){
