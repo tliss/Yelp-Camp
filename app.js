@@ -2,8 +2,6 @@ var express = require("express");
 var app = express();
 var myPort = 3000;
 
-
-
 app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
