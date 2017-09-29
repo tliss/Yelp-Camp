@@ -13,8 +13,14 @@ app.get("/campgrounds", function (req, res) {
         {name: "Salmon Creek", image: "https://farm1.staticflickr.com/112/316612921_f23683ca9d.jpg"},
         {name: "Granite Hill", image: "https://farm5.staticflickr.com/4153/4835814837_feef6f969b.jpg"},
         {name: "Mt. View", image: "https://farm8.staticflickr.com/7252/7626464792_3e68c2a6a5.jpg"}
-    ]
+    ];
     res.render("campgrounds", {campgrounds: campgrounds});
+});
+
+app.post("/campgrounds",function (req, res) {
+    res.send("You hit the post route!");
+    //get data from form and add to campgrounds array
+    //redirect back to campgrounds page
 });
 
 app.listen(myPort, function(){
