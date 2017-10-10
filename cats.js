@@ -1,11 +1,10 @@
 var mongoose = require("mongoose");
 
-var uri = "mongodb://USERNAME:PASSWORD@104.131.74.25:27017/demo";
+var uri = "mongodb://104.131.74.25:27017/cat_app";
+//var uri = "mongodb://ian:secretPassword@104.131.74.25:27017/cool_db";
 
 var options = {
     useMongoClient: true,
-    user: 'USERNAME',
-    pass: 'PASSWORD'
 };
 
 mongoose.connect(uri, options, function(err){
