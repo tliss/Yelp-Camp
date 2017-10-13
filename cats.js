@@ -20,23 +20,23 @@ var catSchema = new mongoose.Schema({
     temperament: String
 });
 
-var Cat = mongoose.model("Cat", catSchema);
+var Cat = mongoose.model("Cat", catSchema);  //"Cat" is the singular version of our collection name
 
 //add a new cat to the DB
 
-var george = new Cat({
-    name: "George",
-    age: 11,
-    temperament: "Grouchy"
-});
-
-george.save(function(err, cat){
-    if(err){
-        console.log("SOMETHING WENT WRONG!");
-    } else {
-        console.log("WE JUST SAVED A CAT TO THE DB: ");
-        console.log(cat);
-    }
-});
+// var george = new Cat({
+//     name: "Mrs. Norris",
+//     age: 7,
+//     temperament: "Evil"
+// });
+//
+// george.save(function(err, cat){
+//     if(err){
+//         console.log("SOMETHING WENT WRONG!");
+//     } else {
+//         console.log("WE JUST SAVED A CAT TO THE DB:\n");
+//         console.log(cat);
+//     }
+// });
 
 //retrieve all cats from the DB and console.log each one
