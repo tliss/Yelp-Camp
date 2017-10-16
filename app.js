@@ -23,24 +23,26 @@ app.set("view engine", "ejs");
 
 // SCHEMA SETUP
 var campgroundSchema = new mongoose.Schema({
-   name: String,
-   image: String
+    name: String,
+    image: String,
+    description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-// Campground.create(
-//     {
-//         name: "Granite Hill",
-//         image: "https://farm5.staticflickr.com/4153/4835814837_feef6f969b.jpg"
-//     }, function(err, campground){
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log("NEWLY CREATED CAMPGROUND: ");
-//             console.log(campground);
-//         }
-//     });
+Campground.create(
+    {
+        name: "Granite Hill",
+        image: "https://farm5.staticflickr.com/4153/4835814837_feef6f969b.jpg",
+        description: "She ain't pretty, but she gets the job done."
+    }, function(err, campground){
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("NEWLY CREATED CAMPGROUND: ");
+            console.log(campground);
+        }
+    });
 
 app.get("/", function (req, res) {
     res.render("landing");
@@ -75,6 +77,13 @@ app.post("/campgrounds",function (req, res) {
             res.redirect("/campgrounds"); //redirect defaults to a GET request
         }
     })
+});
+
+app.post("/campgrounds/:id",function (req, res) {
+    //find the campground with provided ID
+
+    //render show template with that campground
+    res.send("THIS WILL BE THE SHOW PAGE ONE DAY");
 });
 
 app.listen(myPort, function(){
