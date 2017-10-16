@@ -20,9 +20,23 @@ var catSchema = new mongoose.Schema({
     temperament: String
 });
 
-var Cat = mongoose.model("Cat", catSchema);  //"Cat" is the singular version of our collection name
+// Amodel is an object that gives you easy access to a collection
+// mongoose.model returns a new object with a whole bunch of new methods like create()
+var Cat = mongoose.model("Cat", catSchema);  //"Cat" is the singular version of our collection name | catSchema is is used to validate any documents we save to that collection
 
 //add a new cat to the DB
+
+Cat.create({
+   name: "Snow White",
+   age: 15,
+   temerament: "Bland"
+}, function(err, cat){
+    if(err){
+        console.log(err);
+    } else {
+        console.log(cat);
+    }
+});
 
 // var george = new Cat({
 //     name: "Mrs. Norris",
@@ -40,3 +54,13 @@ var Cat = mongoose.model("Cat", catSchema);  //"Cat" is the singular version of 
 // });
 
 //retrieve all cats from the DB and console.log each one
+
+Cat.find({}, function(err, cats){
+    if(err){
+        console.log("OH NO, ERROR!");
+        console.log(err);
+    } else {
+        console.log("ALL THE CATS....\n");
+        console.log(cats);
+    }
+});
